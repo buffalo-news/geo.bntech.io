@@ -26,7 +26,7 @@ func GetIPData(hosturl string, ip string, attempts int) City {
 	if err != nil {
 		lib.LogNl(err.Error())
 		attempts--
-		return GetIPData(ip, attempts)
+		return GetIPData(hosturl, ip, attempts)
 	}
 	defer resp.Body.Close()
 
