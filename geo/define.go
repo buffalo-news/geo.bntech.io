@@ -1,4 +1,4 @@
-package wrapper
+package geo
 
 // City becouse geoip2.City is a big inside our data
 type City struct {
