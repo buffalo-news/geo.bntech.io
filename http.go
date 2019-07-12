@@ -17,7 +17,7 @@ func httpServer() {
 	http.HandleFunc("/stop", stopRoute)
 
 	//var err error
-	httpCloser, _ = listenAndServeWithClose(":8080", nil)
+	httpCloser, _ = listenAndServeWithClose(":3000", nil)
 	serverLog("HTTP Server started\n")
 }
 

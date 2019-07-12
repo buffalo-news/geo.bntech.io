@@ -20,13 +20,12 @@ var httpCloser io.Closer
 func main() {
 	signal.Notify(sigchan, syscall.SIGINT, syscall.SIGTERM)
 
-	//updateDB()
+	updateDB()
 	var err error
 	db, err = geoip2.Open("maxmind/GeoLite2-City.mmdb")
 	if err != nil {
-		serverLog("error parsing db")
-		run = false
-		return
+		serverLog("error parsing db\n")
+		os.Exit(1)
 	}
 	defer db.Close()
 
@@ -35,7 +34,7 @@ func main() {
 	for run {
 		select {
 		case sig := <-sigchan:
-			serverLog(" Caught signal %v: terminating\n", sig)
+			serverLog("Caught signal %v: terminating\n", sig)
 			run = false
 		}
 	}

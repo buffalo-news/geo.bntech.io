@@ -3,7 +3,6 @@ package main
 import (
 	"archive/tar"
 	"compress/gzip"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -17,7 +16,7 @@ func updateDB() {
 
 	err := downloadFile("maxmind/GeoLite2-City.tar.gz", dbURL)
 	if err != nil {
-		serverLog("error updating database")
+		serverLog("error updating database [5]\n")
 		run = false
 		return
 	}
@@ -27,7 +26,7 @@ func updateDB() {
 
 	gzr, err := gzip.NewReader(file)
 	if err != nil {
-		serverLog("error updating database")
+		serverLog("error updating database [4]\n")
 		run = false
 		return
 	}
@@ -42,7 +41,7 @@ func updateDB() {
 		switch {
 		case err == io.EOF:
 		case err != nil:
-			serverLog("error updating database")
+			serverLog("error updating database [3]\n")
 			run = false
 			return
 		case header == nil:
@@ -56,14 +55,14 @@ func updateDB() {
 
 			f, err := os.OpenFile(filepath.Join("maxmind/", fileName), os.O_CREATE|os.O_RDWR, os.FileMode(header.Mode))
 			if err != nil {
-				serverLog("error updating database")
+				serverLog("error updating database [1]\n")
 				run = false
 				return
 			}
 
 			// copy over contents
 			if _, err := io.Copy(f, tr); err != nil {
-				serverLog("error updating database")
+				serverLog("error updating database [2]\n")
 				run = false
 				return
 			}
@@ -76,7 +75,7 @@ func updateDB() {
 
 	os.Remove("maxmind/GeoLite2-City.tar.gz")
 
-	fmt.Println("Archive File Deleted")
+	serverLog("Archive File Deleted\n")
 }
 
 func downloadFile(filepath string, url string) error {
