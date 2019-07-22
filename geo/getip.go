@@ -56,7 +56,11 @@ func GetIPData(hosturl string, ip string, attempts int) City {
 	cleanCity.Location.TimeZone = ipData.Location.TimeZone
 	cleanCity.Traits.IsProxy = ipData.Traits.IsAnonymousProxy
 	cleanCity.Traits.IsEU = ipData.Country.IsInEuropeanUnion
-	cleanCity.Subdivision = ipData.Subdivisions[0].Names["en"]
+
+	//Make sure subdivision exists
+	if len(ipData.Subdivisions) > 0 {
+		cleanCity.Subdivision = ipData.Subdivisions[0].Names["en"]
+	}
 
 	return cleanCity
 }
