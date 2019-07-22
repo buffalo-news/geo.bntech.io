@@ -60,6 +60,7 @@ func GetIPData(hosturl string, ip string, attempts int) City {
 	//Make sure subdivision exists
 	if len(ipData.Subdivisions) > 0 {
 		cleanCity.Subdivision = ipData.Subdivisions[0].Names["en"]
+		cleanCity.SubdivisionISO = ipData.Subdivisions[0].IsoCode
 	}
 
 	return cleanCity
