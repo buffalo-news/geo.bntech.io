@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"gapi.bntech.io/packages/lib"
+	"github.com/buffalo-news/gapi.bntech.io/packages/lib"
 	geoip2 "github.com/oschwald/geoip2-golang"
 )
 
