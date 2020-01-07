@@ -12,8 +12,10 @@ import (
 func updateDB() {
 	serverLog("Updating database...\n")
 
-	dbURL := "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz"
+	// Build the maxmind url for downloading
+	dbURL := "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=" + Settings.License + "&suffix=tar.gz"
 
+	// Download the new database
 	err := downloadFile("maxmind/GeoLite2-City.tar.gz", dbURL)
 	if err != nil {
 		serverLog("error updating database [5]\n")
@@ -21,6 +23,7 @@ func updateDB() {
 		return
 	}
 
+	// Extracting the downloaded file
 	serverLog("Extracting database...\n")
 	file, err := os.Open("maxmind/GeoLite2-City.tar.gz")
 
