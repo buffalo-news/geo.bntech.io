@@ -32,7 +32,7 @@ func GetIPData(hosturl string, ip string, attempts int) City {
 
 	// Read the body
 	body, _ := ioutil.ReadAll(resp.Body)
-	jString, _ := json.Marshal(lib.JSONFromBytes(body)["Body"])
+	jString, _ := json.Marshal(lib.JsonFromBytes(body)["Body"])
 
 	// Create the city to return
 	var ipData geoip2.City

@@ -3,6 +3,8 @@ github.com/DataDog/zstd v1.4.4/go.mod h1:1jcaCB/ufaK+sKp1NBhlGmpz41jOoPQ35bpF36t
 github.com/aureum/usps-go v0.0.0-20150402201426-2f34ab376853/go.mod h1:tm5flUhbQRc9dE8NnNQr0E7O+jPm53ok+9vD01SnnGU=
 github.com/aws/aws-sdk-go v1.29.26 h1:T8LJNOVt0HZgJQySeE+1Pr3ClcX+rb7ddq/ZAjnHzDc=
 github.com/aws/aws-sdk-go v1.29.26/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
+github.com/aws/aws-sdk-go v1.29.27 h1:4A53lDDGtk4TvnXFzvcOO3Vx3tDqEPfwvChhhxTPN/M=
+github.com/aws/aws-sdk-go v1.29.27/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
 github.com/braintree-go/braintree-go v0.22.0/go.mod h1:KZOsgcN57OCLvNAegsEDssgYSsGbdL+msvex1SNmb0E=
 github.com/buffalo-news/gapi.bntech.io v1.0.1 h1:1ceNncskYzNEKecVXwftl6tjPFN0NjafYQxvkms6RVk=
 github.com/buffalo-news/gapi.bntech.io v1.0.1/go.mod h1:7wsrBBQ0xjYAPChLFwewfORzjIXvr8rctFO6ZcznD2o=
