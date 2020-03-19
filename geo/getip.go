@@ -13,7 +13,7 @@ import (
 // GetIPData gets data for ip from the microservice
 func GetIPData(hosturl string, ip string, attempts int) City {
 
-	// Return empty json if all attemps are exhausted
+	// Return empty json if all attempts are exhausted
 	if attempts < 0 {
 		return City{}
 	}
@@ -32,7 +32,7 @@ func GetIPData(hosturl string, ip string, attempts int) City {
 
 	// Read the body
 	body, _ := ioutil.ReadAll(resp.Body)
-	jString, _ := json.Marshal(lib.JsonFromBytes(body)["Body"])
+	jString, _ := json.Marshal(lib.JSONFromBytes(body)["Body"])
 
 	// Create the city to return
 	var ipData geoip2.City
